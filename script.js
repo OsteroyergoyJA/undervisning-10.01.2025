@@ -17,8 +17,14 @@ async function getData() {
   return catFacts;
 }
 
+
 button.addEventListener('click', async () => {
-  console.log(await getData());
+  const factArray = await getData();
+  factArray.forEach((catFact) => {
+    const paragraf = document.createElement('p');
+    paragraf.textContent = catFact.fact;
+    document.body.appendChild(paragraf);
+});
 });
 
 // async function test() {
